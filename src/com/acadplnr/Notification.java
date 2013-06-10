@@ -13,7 +13,8 @@ public class Notification extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.notification);
 		HttpStuff = (TextView) findViewById(R.id.tvHttp);
-		GetMethodEx test = new GetMethodEx();
+		String j ="http://www.iitk.ac.in";
+		GetMethodEx test = new GetMethodEx(j);
 		String returned;
 		
 		try{

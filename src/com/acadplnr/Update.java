@@ -15,7 +15,7 @@ public class Update extends Activity implements OnClickListener {
 	Button bdone, blec, btut, blab;
 	EditText c_name, ins_name, wlink, off;
 	String ClickedPosition, lecd, lecst, lecet, lecv, tutd, tutst, tutet, tutv,
-			labd, labst, labet, labv;
+			labd, labst, labet, labv,hdata,welink;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -141,19 +141,37 @@ public class Update extends Activity implements OnClickListener {
 		switch (v.getId()) {
 
 		case R.id.bdoneeditadd:
+			welink = wlink.getText().toString();
+			if (!welink.startsWith("http://")&&!welink.startsWith("https://")) {
+			    welink = "http://" + welink;
+			}
+			GetMethodEx test = new GetMethodEx(welink);
+			try{
+				hdata = test.getInternetData();
+			}catch(Exception e){
+				e.printStackTrace();
+				String error = e.toString();
+				Dialog h = new Dialog(this);
+				h.setTitle(" :(");
+				TextView tv1 = new TextView(this);
+				tv1.setText(error);
+				h.setContentView(tv1);
+				h.show();
+				hdata = "Could not retrieve data from internet";
+			}
 			boolean didItWORK = true;
-
+				
 			try {
 				String cname = c_name.getText().toString();
 				String insname = ins_name.getText().toString();
-				String welink = wlink.getText().toString();
+				 welink = wlink.getText().toString();
 				String office = off.getText().toString();
 				Crs_database_help entry = new Crs_database_help(Update.this);
 				entry.open();
 				long l = Long.parseLong(ClickedPosition);
 				entry.UpdateCourse(l, cname, insname, welink, office, lecd,
 						lecst, lecet, tutd, tutst, tutet, labd, labst, labet,
-						lecv, labv, tutv);
+						lecv, labv, tutv,hdata);
 				entry.close();
 			} catch (Exception e) {
 				didItWORK = false;

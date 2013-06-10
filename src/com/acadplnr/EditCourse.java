@@ -14,7 +14,7 @@ public class EditCourse extends Activity implements OnClickListener {
 	Global1 globe;
 	EditText courseNm, courseLnk, instructname, off_hr_add;
 	Button bLab, bLec, bTut, bdone;
-	String lec_st,lec_et,tut_st,tut_et,lab_st,lab_et,lec_v,tut_v,lab_v,lec_d,lab_d,tut_d,c_name,w_link,ins_name,off_hradd;
+	String lec_st,lec_et,tut_st,hdata,welink,tut_et,lab_st,lab_et,lec_v,tut_v,lab_v,lec_d,lab_d,tut_d,c_name,w_link,ins_name,off_hradd;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -53,6 +53,24 @@ public class EditCourse extends Activity implements OnClickListener {
 			w_link=courseLnk.getText().toString();
 			ins_name=instructname.getText().toString();
 			off_hradd=off_hr_add.getText().toString();
+			welink = w_link;
+			if (!welink.startsWith("http://")&&!welink.startsWith("https://")) {
+			    welink = "http://" + welink;
+			}
+			GetMethodEx test = new GetMethodEx(w_link);
+			try{
+				hdata = test.getInternetData();
+			}catch(Exception e){
+				e.printStackTrace();
+				String error = e.toString();
+				Dialog h = new Dialog(this);
+				h.setTitle(" :(");
+				TextView tv1 = new TextView(this);
+				tv1.setText(error);
+				h.setContentView(tv1);
+				h.show();
+				hdata = "Could not retrieve data from internet";
+			}
 			if(tut_v==null)
 				tut_v ="Tutorial Venue : Not Yet Set";
 			else
@@ -75,7 +93,7 @@ public class EditCourse extends Activity implements OnClickListener {
 			try{
 			info.createEntry(c_name, ins_name, w_link, off_hradd, lec_d, lec_st, lec_et, tut_d,
 					tut_st, tut_et, lab_d,
-					lab_st, lab_et, lec_v, lab_v, tut_v);
+					lab_st, lab_et, lec_v, lab_v, tut_v,hdata);
 			info.KeyRowIdUpdate();
 			}
 			catch (Exception e)
@@ -87,12 +105,18 @@ public class EditCourse extends Activity implements OnClickListener {
 				tv1.setText(error);
 				h.setContentView(tv1);
 				h.show();
+				try {
+					wait(100000);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 			globe.done = 1;
 			info.close();
 			Intent bablu = new Intent(EditCourse.this,MainActivity.class);
-			startActivity(bablu);
-			finish();
+			//startActivity(bablu);
+			//finish();
 			
 		}
 		
