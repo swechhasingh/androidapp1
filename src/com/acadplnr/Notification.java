@@ -13,10 +13,10 @@ public class Notification extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.notification);
 		HttpStuff = (TextView) findViewById(R.id.tvHttp);
-		GetMethodEx test = new GetMethodEx();
+		//GetMethodEx test = new GetMethodEx();
 		String returned;
 		
-		try{
+		/*try{
 			returned = test.getInternetData();
 			HttpStuff.setText(returned);
 		}catch(Exception e){
@@ -28,7 +28,7 @@ public class Notification extends Activity{
 			tv1.setText(error);
 			h.setContentView(tv1);
 			h.show();
-		}
+		}*/
 		
 	}  
 }
