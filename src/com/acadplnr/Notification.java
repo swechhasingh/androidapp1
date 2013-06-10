@@ -13,15 +13,11 @@ public class Notification extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.notification);
 		HttpStuff = (TextView) findViewById(R.id.tvHttp);
-<<<<<<< HEAD
 		String j ="http://www.iitk.ac.in";
 		GetMethodEx test = new GetMethodEx(j);
-=======
-		//GetMethodEx test = new GetMethodEx();
->>>>>>> 894e6203789d816a545d2fd37b99ed48e03d5573
 		String returned;
 		
-		/*try{
+		try{
 			returned = test.getInternetData();
 			HttpStuff.setText(returned);
 		}catch(Exception e){
@@ -33,7 +29,8 @@ public class Notification extends Activity{
 			tv1.setText(error);
 			h.setContentView(tv1);
 			h.show();
-		}*/
+		}
+	}
 		
-	}  
-}
+}  
+

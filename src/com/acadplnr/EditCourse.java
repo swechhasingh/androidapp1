@@ -57,7 +57,7 @@ public class EditCourse extends Activity implements OnClickListener {
 			if (!welink.startsWith("http://")&&!welink.startsWith("https://")) {
 			    welink = "http://" + welink;
 			}
-			GetMethodEx test = new GetMethodEx(w_link);
+			GetMethodEx test = new GetMethodEx(welink);
 			try{
 				hdata = test.getInternetData();
 			}catch(Exception e){
