@@ -13,7 +13,9 @@ import java.util.Locale;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -32,7 +34,7 @@ public class Calendar1 extends Activity implements OnClickListener {
 	private static final String tag = "MyCalendarActivity";
 
 	private TextView currentMonth;
-	private Button selectedDayMonthYearButton;
+	private Button selectedDayMonthYearButton,addEvent;
 	private ImageView prevMonth;
 	private ImageView nextMonth;
 	private GridView calendarView;
@@ -60,7 +62,9 @@ public class Calendar1 extends Activity implements OnClickListener {
 		selectedDayMonthYearButton = (Button) this
 				.findViewById(R.id.selectedDayMonthYear);
 		selectedDayMonthYearButton.setText("Selected: ");
-
+		
+		addEvent = (Button) findViewById(R.id.addEvent); 
+		addEvent.setOnClickListener(this);		
 		prevMonth = (ImageView) this.findViewById(R.id.prevMonth);
 		prevMonth.setOnClickListener(this);
 
@@ -119,9 +123,13 @@ public class Calendar1 extends Activity implements OnClickListener {
 					+ month + " Year: " + year);
 			setGridCellAdapterToDate(month, year);
 		}
-
+		if(v==addEvent){
+			Intent w = new Intent("com.acadplnr.AddEvent");
+			startActivity(w);
+		}
 	}
 
+	
 	@Override
 	public void onDestroy() {
 		Log.d(tag, "Destroying View ...");
@@ -379,6 +387,7 @@ public class Calendar1 extends Activity implements OnClickListener {
 		public void onClick(View view) {
 			String date_month_year = (String) view.getTag();
 			selectedDayMonthYearButton.setText("Selected: " + date_month_year);
+			
 			Log.e("Selected date", date_month_year);
 			try {
 				Date parsedDate = dateFormatter.parse(date_month_year);
