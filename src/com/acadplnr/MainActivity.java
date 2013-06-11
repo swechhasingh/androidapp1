@@ -31,7 +31,7 @@ public class MainActivity extends TabActivity{
 		  .setContent(intent2);
  
 		// Calendar tab
-		Intent intent3 = new Intent().setClass(this, Calendar.class);
+		Intent intent3 = new Intent().setClass(this, Calendar1.class);
 		TabSpec tabSpec3 = tabHost
 		  .newTabSpec("calendar")
 		  .setIndicator("Calendar")
