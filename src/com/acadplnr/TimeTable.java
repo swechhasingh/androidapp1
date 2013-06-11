@@ -94,37 +94,37 @@ public class TimeTable extends Activity {
 				for (int i = 0; i < lab_days.length; i++) {
 					if (lab_days[i].contentEquals("M")) {
 						courseascmon[a] = data[0] + "(lec)";
-						timeascmon[a] = data[5] + " to " + data[6];
+						timeascmon[a] = data[8] + " to " + data[9];
 						a++;
 					}
 					if (lab_days[i].contentEquals("T")) {
 						courseasctue[b] = data[0] + "(lec)";
-						timeasctue[b] = data[5] + " to " + data[6];
+						timeasctue[b] = data[8] + " to " + data[9];
 						b++;
 					}
 					if (lab_days[i].contentEquals("W")) {
 						courseascwed[c] = data[0] + "(lec)";
-						timeascwed[c] = data[5] + " to " + data[6];
+						timeascwed[c] = data[8] + " to " + data[9];
 						c++;
 					}
 					if (lab_days[i].contentEquals("t")) {
 						courseascthu[d] = data[0] + "(lec)";
-						timeascthu[d] = data[5] + " to " + data[6];
+						timeascthu[d] = data[8] + " to " + data[9];
 						d++;
 					}
 					if (lab_days[i].contentEquals("F")) {
 						courseascfri[e] = data[0] + "(lec)";
-						timeascfri[e] = data[5] + " to " + data[6];
+						timeascfri[e] = data[8] + " to " + data[9];
 						e++;
 					}
 					if (lab_days[i].contentEquals("S")) {
 						courseascsat[f] = data[0] + "(lec)";
-						timeascsat[f] = data[5] + " to " + data[6];
+						timeascsat[f] = data[8] + " to " + data[9];
 						f++;
 					}
 					if (lab_days[i].contentEquals("s")) {
 						courseascsun[g] = data[0] + "(lec)";
-						timeascsun[g] = data[5] + " to " + data[6];
+						timeascsun[g] = data[8] + " to " + data[9];
 						g++;
 
 					}
@@ -132,37 +132,37 @@ public class TimeTable extends Activity {
 				for (int i = 0; i < tut_days.length; i++) {
 					if (tut_days[i].contentEquals("M")) {
 						courseascmon[a] = data[0] + "(lec)";
-						timeascmon[a] = data[5] + " to " + data[6];
+						timeascmon[a] = data[11] + " to " + data[12];
 						a++;
 					}
 					if (tut_days[i].contentEquals("T")) {
 						courseasctue[b] = data[0] + "(lec)";
-						timeasctue[b] = data[5] + " to " + data[6];
+						timeasctue[b] = data[11] + " to " + data[12];
 						b++;
 					}
 					if (tut_days[i].contentEquals("W")) {
 						courseascwed[c] = data[0] + "(lec)";
-						timeascwed[c] = data[5] + " to " + data[6];
+						timeascwed[c] = data[11] + " to " + data[12];
 						c++;
 					}
 					if (tut_days[i].contentEquals("t")) {
 						courseascthu[d] = data[0] + "(lec)";
-						timeascthu[d] = data[5] + " to " + data[6];
+						timeascthu[d] = data[11] + " to " + data[12];
 						d++;
 					}
 					if (tut_days[i].contentEquals("F")) {
 						courseascfri[e] = data[0] + "(lec)";
-						timeascfri[e] = data[5] + " to " + data[6];
+						timeascfri[e] = data[11] + " to " + data[12];
 						e++;
 					}
 					if (tut_days[i].contentEquals("S")) { 
 						courseascsat[f] = data[0] + "(lec)";
-						timeascsat[f] = data[5] + " to " + data[6];
+						timeascsat[f] = data[11] + " to " + data[12];
 						f++;
 					}
 					if (tut_days[i].contentEquals("s")) {
 						courseascsun[g] = data[0] + "(lec)";
-						timeascsun[g] = data[5] + " to " + data[6];
+						timeascsun[g] = data[11] + " to " + data[12];
 						g++;
 					}
 
